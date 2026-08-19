@@ -3,6 +3,7 @@ package com.example;
 public class StudentEvaluator {
 
     public static String evaluate(int[] scores) {
+
         if (scores == null || scores.length == 0) {
             return "INVALID";
         }
