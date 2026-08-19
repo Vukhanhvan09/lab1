@@ -63,4 +63,31 @@ class StudentEvaluatorTest {
                 StudentEvaluator.evaluate(new int[]{40, 45, 30})
         );
     }
+        @Test
+    void shouldCoverMixedPassedAndFailedSubjects() {
+        int[] scores = {80, 40, 90, 30};
+
+        assertEquals("PASS", StudentEvaluator.evaluate(scores));
+    }
+
+    @Test
+    void shouldCoverMultipleIterationsWithAllPassedSubjects() {
+        int[] scores = {90, 80, 70, 60};
+
+        assertEquals("GOOD", StudentEvaluator.evaluate(scores));
+    }
+
+    @Test
+    void shouldCoverMultipleFailedSubjectsAndFailResult() {
+        int[] scores = {40, 30, 20, 10};
+
+        assertEquals("FAIL", StudentEvaluator.evaluate(scores));
+    }
+
+    @Test
+    void shouldCoverInvalidScoreAfterValidScore() {
+        int[] scores = {80, 70, 101};
+
+        assertEquals("INVALID", StudentEvaluator.evaluate(scores));
+    }
 }
